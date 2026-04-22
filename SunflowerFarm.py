@@ -1,3 +1,16 @@
+"""
+Automatiza una granja de girasoles en The Farmer Was Replaced.
+
+Flujo general:
+- recorre toda la granja
+- asegura suelo y agua en cada casilla
+- replanta si falta un girasol
+- detecta girasoles listos para cosecha
+- los agrupa por cantidad de petalos
+- cosecha primero los de mayor valor
+- rellena el campo y repite el ciclo
+"""
+
 def move_to(x, y):
 	while get_pos_x() < x:
 		move(East)
@@ -33,22 +46,23 @@ def scan_tile(state):
 
 	entity = get_entity_type()
 
-	# Mantener el campo lleno
+	# Mantiene la granja siempre sembrada.
 	if entity != Entities.Sunflower:
 		plant(Entities.Sunflower)
 		entity = Entities.Sunflower
 
-	# Cuenta total en la granja
+	# Lleva el total de girasoles presentes en este ciclo.
 	if entity == Entities.Sunflower:
 		state["count"] = state["count"] + 1
 
-	# Solo bucketear las maduras
+	# Guarda la posicion de los girasoles cosechables por cantidad de petalos.
 	if can_harvest():
 		p = measure()
 		state["buckets"][p].append([get_pos_x(), get_pos_y()])
 
 
 def sweep(action, state=None):
+	# Recorre el mapa en patron serpiente para cubrir toda la granja sin reiniciar cada fila.
 	n = get_world_size()
 
 	for row in range(n):
@@ -88,16 +102,16 @@ def refill_field():
 
 
 def harvest_descending(state):
-	# 15 -> 7
+	# Cosecha de mayor a menor para priorizar los girasoles mas valiosos.
 	for petals in range(15, 6, -1):
 		for pos in state["buckets"][petals]:
-			# Si antes de cosechar ya no hay 10, parar
+			# Evita vaciar demasiado la granja y mantiene una base productiva.
 			if state["count"] < 10:
 				return
 
 			move_to(pos[0], pos[1])
 
-			# Revalidar por seguridad
+			# Revalida el estado por si la casilla cambio durante el recorrido.
 			if get_entity_type() == Entities.Sunflower and can_harvest():
 				if measure() == petals:
 					harvest()
@@ -105,6 +119,7 @@ def harvest_descending(state):
 
 
 def sunflower_cycle():
+	# Estado compartido del ciclo actual: total de girasoles y grupos por petalos.
 	state = {
 		"count": 0,
 		"buckets": make_buckets()
