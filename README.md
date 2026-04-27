@@ -10,6 +10,7 @@ La idea del proyecto es recopilar los mejores codigos de automatizacion, documen
 - `MultiCropFarm.py`: script de granja multicultivo con zonas para calabazas, girasoles, cactus, zanahorias, arboles y arbustos.
 - `PolycultureFarm.py`: script de multicultivo que usa `get_companion()` para aprovechar policultivo.
 - `MazeSolver.py`: script para crear un laberinto de campo completo y resolverlo buscando el tesoro.
+- `DinosaurBoneHarvester.py`: script para recolectar huesos usando el sombrero de dinosaurio.
 - `farm_utils.py`: utilidades reutilizables para preparar tierra, plantar columnas y moverse por el mapa.
 - `OPTIMIZATION_IDEAS.md`: ideas y prototipos separados para probar mejoras antes de integrarlas.
 
@@ -69,6 +70,12 @@ Los cultivos principales rotan entre arbustos, arboles, zanahorias y pasto. Las 
 El solver corre en bucle infinito: cuando encuentra y cosecha el tesoro, limpia el campo, crea otro laberinto y vuelve a buscar. Si no hay suficiente `Items.Weird_Substance`, planta girasoles, los acelera con `Items.Fertilizer` para infectarlos y cosecha para generar mas sustancia.
 
 Durante la busqueda usa `can_move()` para revisar paredes, guarda las casillas visitadas y evalua todas las salidas disponibles para tomar la que mas reduce la distancia al tesoro. Si llega a un callejon, retrocede por el camino recorrido y prueba otra rama.
+
+## Dinosaurios
+
+`DinosaurBoneHarvester.py` usa `Hats.Dinosaur_Hat` para generar una cola tipo serpiente y recolectar huesos al cambiar de sombrero.
+
+El script sigue un recorrido Hamiltoniano por la granja para evitar chocar con la cola y crecer hasta llenar el campo. Si no hay suficiente cactus para comprar manzanas, primero genera cactus y luego empieza el ciclo de dinosaurio.
 
 ## Mejoras por revisar
 
