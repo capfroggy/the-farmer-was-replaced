@@ -8,6 +8,7 @@ La idea del proyecto es recopilar los mejores codigos de automatizacion, documen
 
 - `SunflowerFarm.py`: script para automatizar la granja de girasoles.
 - `MultiCropFarm.py`: script de granja multicultivo con zonas para calabazas, girasoles, cactus, zanahorias, arboles y arbustos.
+- `MazeSolver.py`: script para crear un laberinto de campo completo y resolverlo buscando el tesoro.
 - `farm_utils.py`: utilidades reutilizables para preparar tierra, plantar columnas y moverse por el mapa.
 
 ## Granja de girasoles
@@ -52,6 +53,12 @@ Las capas exteriores se usan para otros cultivos:
 3. Arboles y arbustos alternados en otra capa.
 
 Este script usa `farm_utils.py` para preparar el terreno antes de entrar al ciclo principal.
+
+## Laberintos
+
+`MazeSolver.py` crea un laberinto usando `Items.Weird_Substance` sobre un arbusto y busca el tesoro con una exploracion guiada por `measure()`.
+
+El solver usa `can_move()` para revisar paredes, guarda las casillas visitadas y prioriza moverse hacia la posicion del tesoro. Si llega a un callejon, retrocede por el camino recorrido y prueba otra rama.
 
 ## Mejoras por revisar
 
