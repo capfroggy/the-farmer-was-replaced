@@ -8,6 +8,7 @@ La idea del proyecto es recopilar los mejores codigos de automatizacion, documen
 
 - `SunflowerFarm.py`: script para automatizar la granja de girasoles.
 - `MultiCropFarm.py`: script de granja multicultivo con zonas para calabazas, girasoles, cactus, zanahorias, arboles y arbustos.
+- `PolycultureFarm.py`: script de multicultivo que usa `get_companion()` para aprovechar policultivo.
 - `MazeSolver.py`: script para crear un laberinto de campo completo y resolverlo buscando el tesoro.
 - `farm_utils.py`: utilidades reutilizables para preparar tierra, plantar columnas y moverse por el mapa.
 - `OPTIMIZATION_IDEAS.md`: ideas y prototipos separados para probar mejoras antes de integrarlas.
@@ -54,6 +55,12 @@ Las capas exteriores se usan para otros cultivos:
 3. Arboles y arbustos alternados en otra capa.
 
 Este script usa `farm_utils.py` para preparar el terreno antes de entrar al ciclo principal.
+
+## Granja con policultivo
+
+`PolycultureFarm.py` prueba la mecanica de policultivo. Planta cultivos principales en anclas separadas y usa `get_companion()` para saber que companion necesita cada planta y en que coordenada colocarlo.
+
+Los cultivos principales rotan entre arbustos, arboles, zanahorias y pasto. Las anclas estan separadas cada 4 casillas para reducir el riesgo de que un companion sobrescriba otro cultivo principal.
 
 ## Laberintos
 
