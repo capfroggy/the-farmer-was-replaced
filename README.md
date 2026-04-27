@@ -58,7 +58,9 @@ Este script usa `farm_utils.py` para preparar el terreno antes de entrar al cicl
 
 `MazeSolver.py` crea un laberinto usando `Items.Weird_Substance` sobre un arbusto y busca el tesoro con una exploracion guiada por `measure()`.
 
-El solver usa `can_move()` para revisar paredes, guarda las casillas visitadas y prioriza moverse hacia la posicion del tesoro. Si llega a un callejon, retrocede por el camino recorrido y prueba otra rama.
+El solver corre en bucle infinito: cuando encuentra y cosecha el tesoro, limpia el campo, crea otro laberinto y vuelve a buscar. Si no hay suficiente `Items.Weird_Substance`, planta girasoles, los acelera con `Items.Fertilizer` para infectarlos y cosecha para generar mas sustancia.
+
+Durante la busqueda usa `can_move()` para revisar paredes, guarda las casillas visitadas y evalua todas las salidas disponibles para tomar la que mas reduce la distancia al tesoro. Si llega a un callejon, retrocede por el camino recorrido y prueba otra rama.
 
 ## Mejoras por revisar
 
