@@ -2,13 +2,16 @@
 
 Este repositorio reune codigos generados por mi para la eficientacion de granjas dentro del juego **The Farmer Was Replaced**.
 
-Por el momento solo llevo la automatizacion de la granja de girasoles, pero despues trabajare en mas scripts para otros tipos de granjas y procesos.
+La idea del proyecto es recopilar los mejores codigos de automatizacion, documentar como funcionan y revisar que posibles mejoras se pueden hacer en cada estrategia.
 
 ## Contenido actual
 
 - `SunflowerFarm.py`: script para automatizar la granja de girasoles.
+- `MultiCropFarm.py`: script de granja multicultivo con zonas para calabazas, girasoles, cactus, zanahorias, arboles y arbustos.
+- `farm_utils.py`: utilidades reutilizables para preparar tierra, plantar columnas y moverse por el mapa.
+- `PROJECT_CONTEXT.md`: contexto del proyecto, objetivos, decisiones y mejoras pendientes.
 
-## Que hace este script
+## Granja de girasoles
 
 `SunflowerFarm.py` automatiza por completo una granja de girasoles.
 
@@ -34,3 +37,24 @@ El script trabaja en ciclos infinitos:
 - `scan_tile(state)` revisa cada casilla, planta si falta un girasol y guarda la posicion de los que ya se pueden cosechar.
 - `harvest_descending(state)` cosecha primero los girasoles mas valiosos segun su cantidad de petalos.
 - `refill_field()` asegura que el campo vuelva a quedar completo despues de cada ciclo.
+
+## Granja multicultivo
+
+`MultiCropFarm.py` divide el terreno en varias zonas para producir diferentes recursos al mismo tiempo.
+
+La parte interior esta enfocada en calabazas. Durante cada ciclo revisa si hay calabazas muertas o espacios vacios; si encuentra alguno, replanta y espera antes de cosechar. Si todo el bloque esta sano, cosecha la calabaza grande.
+
+Las capas exteriores se usan para otros cultivos:
+
+1. Girasoles en una primera capa externa.
+2. Cactus y zanahorias alternados en patron de tablero.
+3. Arboles y arbustos alternados en otra capa.
+
+Este script usa `farm_utils.py` para preparar el terreno antes de entrar al ciclo principal.
+
+## Mejoras por revisar
+
+- Ajustar los limites de zonas de la granja multicultivo segun el tamano real del mundo.
+- Revisar si algunos `harvest()` deben depender de `can_harvest()` para evitar acciones innecesarias.
+- Completar o eliminar funciones pendientes como `till_all()`.
+- Comparar rendimiento entre scripts cuando se prueben dentro del juego.
