@@ -41,6 +41,8 @@ El script trabaja en ciclos infinitos:
 
 `MultiCropFarm.py` divide el terreno en varias zonas para producir diferentes recursos al mismo tiempo.
 
+Los limites de cada zona se calculan automaticamente con `get_world_size()`, asi que la distribucion se adapta al tamano actual del grid sin que el usuario tenga que ajustar numeros manualmente.
+
 La parte interior esta enfocada en calabazas. Durante cada ciclo revisa si hay calabazas muertas o espacios vacios; si encuentra alguno, replanta y espera antes de cosechar. Si todo el bloque esta sano, cosecha la calabaza grande.
 
 Las capas exteriores se usan para otros cultivos:
@@ -53,7 +55,6 @@ Este script usa `farm_utils.py` para preparar el terreno antes de entrar al cicl
 
 ## Mejoras por revisar
 
-- Ajustar los limites de zonas de la granja multicultivo segun el tamano real del mundo.
 - Revisar si algunos `harvest()` deben depender de `can_harvest()` para evitar acciones innecesarias.
 - Completar o eliminar funciones pendientes como `till_all()`.
 - Comparar rendimiento entre scripts cuando se prueben dentro del juego.
