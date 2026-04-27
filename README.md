@@ -10,6 +10,7 @@ La idea del proyecto es recopilar los mejores codigos de automatizacion, documen
 - `MultiCropFarm.py`: script de granja multicultivo con zonas para calabazas, girasoles, cactus, zanahorias, arboles y arbustos.
 - `MazeSolver.py`: script para crear un laberinto de campo completo y resolverlo buscando el tesoro.
 - `farm_utils.py`: utilidades reutilizables para preparar tierra, plantar columnas y moverse por el mapa.
+- `OPTIMIZATION_IDEAS.md`: ideas y prototipos separados para probar mejoras antes de integrarlas.
 
 ## Granja de girasoles
 
@@ -64,6 +65,8 @@ Durante la busqueda usa `can_move()` para revisar paredes, guarda las casillas v
 
 ## Mejoras por revisar
 
+- Probar generacion paralela de `Items.Weird_Substance` usando multiples drones.
+- Usar `simulate()` para comparar tiempos entre versiones de scripts.
 - Revisar si algunos `harvest()` deben depender de `can_harvest()` para evitar acciones innecesarias.
 - Completar o eliminar funciones pendientes como `till_all()`.
 - Comparar rendimiento entre scripts cuando se prueben dentro del juego.
