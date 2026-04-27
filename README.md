@@ -9,7 +9,6 @@ La idea del proyecto es recopilar los mejores codigos de automatizacion, documen
 - `SunflowerFarm.py`: script para automatizar la granja de girasoles.
 - `MultiCropFarm.py`: script de granja multicultivo con zonas para calabazas, girasoles, cactus, zanahorias, arboles y arbustos.
 - `farm_utils.py`: utilidades reutilizables para preparar tierra, plantar columnas y moverse por el mapa.
-- `PROJECT_CONTEXT.md`: contexto del proyecto, objetivos, decisiones y mejoras pendientes.
 
 ## Granja de girasoles
 
