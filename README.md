@@ -14,9 +14,7 @@ La idea del proyecto es recopilar los mejores codigos de automatizacion, documen
 - `DinosaurBoneHarvesterSim32.py`: variante de una sola corrida para probar dinosaurio con `simulate()` en mundo 32.
 - `BenchmarkDinosaurSim32.py`: benchmark que ejecuta la simulacion del dinosaurio en mundo 32.
 - `farm_utils.py`: utilidades reutilizables para preparar tierra, plantar columnas y moverse por el mapa.
-- `LEADERBOARD_SCRIPTS.md`: mapa de scripts para cada tabla de clasificacion.
 - `OPTIMIZATION_IDEAS.md`: ideas y prototipos separados para probar mejoras antes de integrarlas.
-- `THIRD_PARTY_NOTICES.md`: atribuciones de repositorios externos usados como referencia.
 
 ## Granja de girasoles
 
@@ -85,8 +83,6 @@ El script sigue un recorrido Hamiltoniano por la granja para evitar chocar con l
 
 ## Mejoras por revisar
 
-- Probar los scripts `LB_*` con `leaderboard_run()` y ajustar segun los tiempos reales.
-- Comparar y adaptar ideas del repo MIT `enihsyou/The-Farmer-Was-Replaced` sin copiar estrategias a ciegas.
 - Probar generacion paralela de `Items.Weird_Substance` usando multiples drones.
 - Usar `simulate()` para comparar tiempos entre versiones de scripts.
 - Revisar si algunos `harvest()` deben depender de `can_harvest()` para evitar acciones innecesarias.

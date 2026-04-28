@@ -1,3 +1,0 @@
-import leaderboard_common
-
-leaderboard_common.farm_pumpkins_full_until(200000000)

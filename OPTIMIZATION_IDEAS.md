@@ -30,17 +30,6 @@ Para inspeccionar algoritmos nuevos conviene usar `set_world_size()` y `set_exec
 
 Es posible intentar que dos o mas drones busquen el tesoro desde la misma entrada con estrategias distintas, por ejemplo mano izquierda y mano derecha. Sin embargo, esto necesita coordinacion para evitar que drones sigan corriendo despues de que otro coseche el tesoro.
 
-## Ideas importadas del repo de referencia MIT
-
-Referencia: `https://github.com/enihsyou/The-Farmer-Was-Replaced`.
-
-- `hay_single.py`: usa `set_world_size(5)` y dos tiles de Grass con companion Bush. Ya se adapto en `LB_Hay_Single.py`; falta medir si baja de 3 horas.
-- `leaderboards.py`: usa `speedup=40960` en `leaderboard_run()`. Ya se adapto en los `Run_*.py` para acelerar pruebas.
-- `fastest_reset.py`: usa costos recursivos y una ruta fija de upgrades repetidos. Ya se adapto parcialmente en `LB_Fastest_Reset.py`, pero sigue siendo experimental.
-- `maze.py` y `maze_single.py`: usan una representacion mas completa del laberinto y pueden mejorar nuestros solvers de `LB_Maze.py`/`LB_Maze_Single.py`.
-- `cactus_single.py`: resuelve cactus con ordenamiento local usando `measure()`/`swap()`. Candidato fuerte para reemplazar nuestros cactus basicos.
-- `dianosaus.py`: tiene ruta de dinosaurio con rank alto. Conviene compararlo con nuestro `DinosaurBoneHarvester.py` cuando el archivo local del usuario este listo para integrarse.
-
 ## Prototipo: generador paralelo de Weird Substance
 
 Este enfoque puede reemplazar `generate_weird_substance()` despues de probarlo.
