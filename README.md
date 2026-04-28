@@ -11,6 +11,8 @@ La idea del proyecto es recopilar los mejores codigos de automatizacion, documen
 - `PolycultureFarm.py`: script de multicultivo que usa `get_companion()` para aprovechar policultivo.
 - `MazeSolver.py`: script para crear un laberinto de campo completo y resolverlo buscando el tesoro.
 - `DinosaurBoneHarvester.py`: script para recolectar huesos usando el sombrero de dinosaurio.
+- `DinosaurBoneHarvesterSim32.py`: variante de una sola corrida para probar dinosaurio con `simulate()` en mundo 32.
+- `BenchmarkDinosaurSim32.py`: benchmark que ejecuta la simulacion del dinosaurio en mundo 32.
 - `farm_utils.py`: utilidades reutilizables para preparar tierra, plantar columnas y moverse por el mapa.
 - `OPTIMIZATION_IDEAS.md`: ideas y prototipos separados para probar mejoras antes de integrarlas.
 
@@ -76,6 +78,8 @@ Durante la busqueda usa `can_move()` para revisar paredes, guarda las casillas v
 `DinosaurBoneHarvester.py` usa `Hats.Dinosaur_Hat` para generar una cola tipo serpiente y recolectar huesos al cambiar de sombrero.
 
 El script sigue un recorrido Hamiltoniano por la granja para evitar chocar con la cola y crecer hasta llenar el campo. Si no hay suficiente cactus para comprar manzanas, primero genera cactus y luego empieza el ciclo de dinosaurio.
+
+`BenchmarkDinosaurSim32.py` ejecuta una variante de una sola corrida en mundo 32 usando `simulate()` para medir rendimiento sin cambiar la granja real.
 
 ## Mejoras por revisar
 
