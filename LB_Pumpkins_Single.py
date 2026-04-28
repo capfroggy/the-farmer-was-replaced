@@ -1,0 +1,3 @@
+import leaderboard_common
+
+leaderboard_common.farm_pumpkins_single_until(10000000)

@@ -1,0 +1,3 @@
+import leaderboard_maze_common
+
+leaderboard_maze_common.farm_maze_gold_until(616448)

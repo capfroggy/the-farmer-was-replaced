@@ -1,0 +1,3 @@
+import leaderboard_common
+
+leaderboard_common.farm_wood_full_until(10000000000)
