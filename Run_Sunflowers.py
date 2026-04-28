@@ -1,1 +1,1 @@
-leaderboard_run(Leaderboards.Sunflowers, "LB_Sunflowers", 1000)
+leaderboard_run(Leaderboards.Sunflowers, "LB_Sunflowers", 40960)

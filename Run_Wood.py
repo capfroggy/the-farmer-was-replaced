@@ -1,1 +1,1 @@
-leaderboard_run(Leaderboards.Wood, "LB_Wood", 1000)
+leaderboard_run(Leaderboards.Wood, "LB_Wood", 40960)

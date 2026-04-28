@@ -1,1 +1,1 @@
-leaderboard_run(Leaderboards.Maze, "LB_Maze", 1000)
+leaderboard_run(Leaderboards.Maze, "LB_Maze", 40960)

@@ -1,1 +1,1 @@
-leaderboard_run(Leaderboards.Dinosaur, "LB_Dinosaur", 1000)
+leaderboard_run(Leaderboards.Dinosaur, "LB_Dinosaur", 40960)

@@ -11,7 +11,7 @@ Ejecuta el archivo `Run_*` de la categoria que quieras probar.
 Ejemplo:
 
 ```python
-leaderboard_run(Leaderboards.Hay_Single, "LB_Hay_Single", 1000)
+leaderboard_run(Leaderboards.Hay_Single, "LB_Hay_Single", 40960)
 ```
 
 ## Categorias principales
@@ -43,9 +43,10 @@ leaderboard_run(Leaderboards.Hay_Single, "LB_Hay_Single", 1000)
 ## Notas
 
 - Los scripts de recursos usan metas absolutas, igual que las condiciones del juego.
+- Los runners usan `speedup=40960` para que las simulaciones tarden menos tiempo real; esto no cambia el tiempo oficial simulado.
 - Los scripts multi-dron intentan usar `spawn_drone()` cuando esta disponible.
-- Los scripts single usan un solo dron, pero recorren todo el grid disponible.
-- `LB_Hay_Single.py` usa un barrido serpentino especializado y evita checks/replantado por casilla para reducir ticks.
+- Los scripts single usan un solo dron; algunos recorren todo el grid y otros reducen `set_world_size()` cuando eso mejora el leaderboard.
+- `LB_Hay_Single.py` usa una estrategia 5x5 con policultivo inspirada por `enihsyou/The-Farmer-Was-Replaced`.
 - `LB_Maze.py` y `LB_Maze_Single.py` reutilizan el laberinto usando `Items.Weird_Substance` sobre el tesoro.
 - `LB_Dinosaur.py` usa la variante simulable `DinosaurBoneHarvesterSim32.py`.
 - `LB_Fastest_Reset.py` es experimental. La version actual usa calculo recursivo de costos y una ruta fija de unlocks/upgrades para evitar dependencias tempranas.
