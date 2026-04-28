@@ -75,7 +75,13 @@ def farm_single_until(crop, item, target, needs_soil):
 	clear()
 
 	while num_items(item) < target:
-		farm_configured_tile()
+		for _ in range(get_world_size()):
+			for _ in range(get_world_size()):
+				if num_items(item) >= target:
+					return
+				farm_configured_tile()
+				move(North)
+			move(East)
 
 
 def farm_wood_tile():
@@ -121,10 +127,13 @@ def farm_wood_full_until(target):
 def farm_wood_single_until(target):
 	clear()
 	while num_items(Items.Wood) < target:
-		if can_harvest():
-			harvest()
-		if get_entity_type() != Entities.Bush:
-			plant(Entities.Bush)
+		for _ in range(get_world_size()):
+			for _ in range(get_world_size()):
+				if num_items(Items.Wood) >= target:
+					return
+				farm_wood_tile()
+				move(North)
+			move(East)
 
 
 pumpkin_ready = False
@@ -168,16 +177,19 @@ def farm_pumpkins_single_until(target):
 	clear()
 
 	while num_items(Items.Pumpkin) < target:
-		ensure_soil()
-		entity = get_entity_type()
+		pumpkin_ready = True
 
-		if entity == Entities.Dead_Pumpkin or entity == None:
-			plant(Entities.Pumpkin)
-		elif entity != Entities.Pumpkin:
-			if can_harvest():
-				harvest()
-			plant(Entities.Pumpkin)
-		elif can_harvest():
+		for _ in range(get_world_size()):
+			for _ in range(get_world_size()):
+				if num_items(Items.Pumpkin) >= target:
+					return
+				scan_pumpkin_tile()
+				if get_entity_type() != Entities.Pumpkin or not can_harvest():
+					pumpkin_ready = False
+				move(North)
+			move(East)
+
+		if pumpkin_ready:
 			harvest()
 
 
