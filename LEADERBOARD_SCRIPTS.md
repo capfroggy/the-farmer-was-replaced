@@ -48,4 +48,4 @@ leaderboard_run(Leaderboards.Hay_Single, "LB_Hay_Single", 1000)
 - `LB_Hay_Single.py` usa un barrido serpentino especializado y evita checks/replantado por casilla para reducir ticks.
 - `LB_Maze.py` y `LB_Maze_Single.py` reutilizan el laberinto usando `Items.Weird_Substance` sobre el tesoro.
 - `LB_Dinosaur.py` usa la variante simulable `DinosaurBoneHarvesterSim32.py`.
-- `LB_Fastest_Reset.py` es experimental. Automatizar un reset completo requiere mas iteracion que los leaderboards con todo desbloqueado.
+- `LB_Fastest_Reset.py` es experimental. La version actual usa calculo recursivo de costos y una ruta fija de unlocks/upgrades para evitar dependencias tempranas.
