@@ -45,6 +45,7 @@ leaderboard_run(Leaderboards.Hay_Single, "LB_Hay_Single", 1000)
 - Los scripts de recursos usan metas absolutas, igual que las condiciones del juego.
 - Los scripts multi-dron intentan usar `spawn_drone()` cuando esta disponible.
 - Los scripts single usan un solo dron, pero recorren todo el grid disponible.
+- `LB_Hay_Single.py` usa un barrido serpentino especializado y evita checks/replantado por casilla para reducir ticks.
 - `LB_Maze.py` y `LB_Maze_Single.py` reutilizan el laberinto usando `Items.Weird_Substance` sobre el tesoro.
 - `LB_Dinosaur.py` usa la variante simulable `DinosaurBoneHarvesterSim32.py`.
 - `LB_Fastest_Reset.py` es experimental. Automatizar un reset completo requiere mas iteracion que los leaderboards con todo desbloqueado.
