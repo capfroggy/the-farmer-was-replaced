@@ -86,7 +86,7 @@ def farm_single_until(crop, item, target, needs_soil):
 
 def farm_wood_tile():
 	crop = Entities.Bush
-	if (get_pos_x() + get_pos_y()) % 2 == 0:
+	if num_unlocked(Unlocks.Trees) > 0 and (get_pos_x() + get_pos_y()) % 2 == 0:
 		crop = Entities.Tree
 
 	if can_harvest():
